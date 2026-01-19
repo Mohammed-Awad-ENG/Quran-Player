@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+        <link rel="icon" href="quraanIcon.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/normalize.css">
+    <link rel="stylesheet" href="CSS/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:slnt,wght@-11..11,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <title>Quran Player</title>
+</head>
+
+<body>
+    <div class="search-container">
+        <div class="search-reciter">
+            <label for="reciter-choice">اختر القارئ</label>
+            <input type="search" name="reciter-search" id="reciter-choice" list="reciters" placeholder=" القارئ"
+                autocomplete="off">
+            <datalist id="reciters">
+            </datalist>
+
+        </div>
+
+        <div class="search-moshaf">
+            <label for="moshaf-choice">اختر الروايه</label>
+            <input type="search" name="reciter-moshaf" id="moshaf-choice" list="moshaf" placeholder=" الروايه"
+                autocomplete="off">
+            <datalist id="moshaf">
+            </datalist>
+        </div>
+        <div class="search-surah">
+            <label for="surah-choice">اختر السوره</label>
+            <input type="search" name="reciter-sura" id="surah-choice" list="surah" placeholder=" السوره"
+                autocomplete="off">
+            <datalist id="surah">
+            </datalist>
+        </div>
+        <p class="box"><a href="index-en.html" class="lang-shift"><i class="fa-solid fa-language"></i></a>
+            <i class="fa-solid fa-angle-up"></i>
+        </p>
+    </div>
+
+    <div class="player-sec">
+        <div class="player">
+            <div class="options">
+                <div class="option menu" title="اخفي قائمه البحث">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+            <img src="quraan.png" alt="quran" class="quran-img">
+            <h1 class="reciterName">.</h1>
+            <p class="rewayaName">.</p>
+            <p class="surahName">.</p>
+            <input type="range" value="0" class="progress">
+
+            <div class="controls-audio">
+                <div class="forward">
+                    <i class="fa-solid fa-forward"></i>
+                </div>
+                <div>
+                    <i class="fa-solid fa-play playSwitchBtn"></i>
+                </div>
+                <div class="backward">
+                    <i class="fa-solid fa-backward"></i>
+                </div>
+
+            </div>
+        </div>
+
+
+        <audio src="" class="target-audio"></audio>
+    </div>
+</body>
+<script src="main.js"></script>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="quraanIcon.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/normalize.css">
+    <link rel="stylesheet" href="CSS/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <title>Quran Player</title>
+</head>
+<style>
+    * {
+        font-family: "Roboto", sans-serif;
+    }
+</style>
+
+<body>
+    <div class="search-container">
+        <div class="search-reciter">
+            <label for="reciter-choice">Choose reciter</label>
+            <input type="search" name="reciter-search" id="reciter-choice" list="reciters" placeholder="Reciter"
+                autocomplete="off">
+            <datalist id="reciters">
+            </datalist>
+
+        </div>
+
+        <div class="search-moshaf">
+            <label for="moshaf-choice">Choose edition</label>
+            <input type="search" name="reciter-moshaf" id="moshaf-choice" list="moshaf" placeholder="Edition"
+                autocomplete="off">
+            <datalist id="moshaf">
+            </datalist>
+        </div>
+        <div class="search-surah">
+            <label for="surah-choice">Choose surah</label>
+            <input type="search" name="reciter-sura" id="surah-choice" list="surah" placeholder="Surah"
+                autocomplete="off">
+            <datalist id="surah">
+            </datalist>
+        </div>
+        <p class="box"><a href="index.html" class="lang-shift"><i class="fa-solid fa-language"></i></a>
+            <i class="fa-solid fa-angle-up"></i>
+        </p>
+    </div>
+
+    <div class="player-sec">
+        <div class="player">
+            <div class="options">
+                <div class="option menu" title="Hide search list">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+            <img src="quraan.png" alt="quran" class="quran-img">
+            <h1 class="reciterName">.</h1>
+            <p class="rewayaName">.</p>
+            <p class="surahName">.</p>
+            <input type="range" value="0" class="progress">
+
+            <div class="controls-audio">
+                <div>
+                    <i class="fa-solid fa-backward"></i>
+                </div>
+                <div>
+                    <i class="fa-solid fa-play playSwitchBtn"></i>
+                </div>
+                <div>
+                    <i class="fa-solid fa-forward"></i>
+                </div>
+
+            </div>
+        </div>
+
+
+        <audio src="" class="target-audio"></audio>
+    </div>
+</body>
+<style>
+    .search-container label {
+        border-radius: 10px 0 0 10px;
+        width: 130px;
+    }
+</style>
+<script src="main.js"></script>
+
+</html>
