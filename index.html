@@ -2,14 +2,15 @@
 <html lang="ar" dir="rtl">
 
 <head>
-        <link rel="icon" href="quraanIcon.png" type="image/x-icon">
+    <link rel="icon" href="quraanIcon.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/normalize.css">
     <link rel="stylesheet" href="CSS/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:slnt,wght@-11..11,200..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:slnt,wght@-11..11,200..1000&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="CSS/style.css">
 
     <title>Quran Player</title>
@@ -56,7 +57,10 @@
             <h1 class="reciterName">.</h1>
             <p class="rewayaName">.</p>
             <p class="surahName">.</p>
-            <input type="range" value="0" class="progress">
+            <div class="time-range">
+                <span class="time ar-time">00:00:00</span>
+                <input type="range" value="0" class="progress">
+            </div>
 
             <div class="controls-audio">
                 <div class="forward">
