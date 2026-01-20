@@ -81,6 +81,19 @@ body {
     font-size: 18px;
     margin-top: 6px;
 }
+.time-range {
+    position: relative;
+}
+.time {
+    color: #fff;
+    position: absolute;
+}
+.ar-time {
+    left: 0;
+}
+.en-time {
+    right: 0;
+}
 .progress {
     -webkit-appearance: none;
     width: 100%;
