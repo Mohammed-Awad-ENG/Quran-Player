@@ -2,6 +2,7 @@
 let progress = document.querySelector(".progress");
 let audio = document.querySelector(".target-audio");
 let playSwitchBtn = document.querySelector(".playSwitchBtn");
+let time = document.querySelector(".time");
 
 audio.onloadedmetadata = () => {
     progress.max = audio.duration;
@@ -25,6 +26,18 @@ playSwitchBtn.parentElement.addEventListener("click", () => {
 setInterval(() => {
     progress.value = audio.currentTime;
     progress.max = audio.duration;
+
+    if (!isNaN(audio.duration)) {
+        // Calculate Time
+        let timeRemaining = audio.duration - audio.currentTime;
+        time.innerHTML = `${Math.floor(timeRemaining / 3600)}:${Math.floor(
+            (timeRemaining % 3600) / 60,
+        )
+            .toString()
+            .padStart(2, "0")}:${Math.floor(timeRemaining % 60)
+            .toString()
+            .padStart(2, "0")}`;
+    }
 }, 500);
 
 progress.onchange = () => {
@@ -60,13 +73,13 @@ async function getReciters() {
         const value = e.target.value;
         document.querySelector(".reciterName").innerHTML = value;
         getMoshaf(
-            Array.from(datalist.options).find((o) => o.value === value).id
+            Array.from(datalist.options).find((o) => o.value === value).id,
         );
     });
 }
 async function getMoshaf(reciterId) {
     const Rewayat = await fetch(
-        `${apiUrl}/reciters?language=${lang}&reciter=${reciterId}`
+        `${apiUrl}/reciters?language=${lang}&reciter=${reciterId}`,
     );
     const data = await Rewayat.json();
     let RewayatOp = document.querySelector("#moshaf");
@@ -80,11 +93,11 @@ async function getMoshaf(reciterId) {
         document.querySelector(".rewayaName").innerHTML = value;
 
         const selectedMoshaf = Array.from(RewayatOp.options).find(
-            (o) => o.value === value
+            (o) => o.value === value,
         );
         getSurah(
             selectedMoshaf.dataset.server,
-            selectedMoshaf.dataset.suraList
+            selectedMoshaf.dataset.suraList,
         );
     });
 }
@@ -117,7 +130,7 @@ async function getSurah(server, suraList) {
             const surahName = document.querySelector(".surahName");
             surahName.innerHTML = value;
             const selected = Array.from(surahDatalist.options).find(
-                (o) => o.value === value
+                (o) => o.value === value,
             );
             const serverUrl = selected ? selected.dataset.server : null;
 
@@ -133,7 +146,7 @@ async function getSurah(server, suraList) {
                     playSwitchBtn.classList.add("fa-pause");
 
                     const selectedSurah = Array.from(
-                        surahDatalist.options
+                        surahDatalist.options,
                     ).find((o) => o.dataset.server === currentServerUrl);
                     surahName.innerHTML = selectedSurah.value;
                 } catch (err) {
@@ -155,7 +168,7 @@ async function getSurah(server, suraList) {
                         playSwitchBtn.classList.add("fa-pause");
 
                         const selectedSurah = Array.from(
-                            surahDatalist.options
+                            surahDatalist.options,
                         ).find((o) => o.dataset.server === currentServerUrl);
                         surahName.innerHTML = selectedSurah.value;
                     } catch (err) {
@@ -180,7 +193,7 @@ function getNextUrl(url, forward = true) {
             alert(`هذه السوره غير متوفره لهاذا القارئ بهذه الروايه`);
         else
             alert(
-                `This surah is not available for this reciter in this Rewaya`
+                `This surah is not available for this reciter in this Rewaya`,
             );
     }
     const base = match[1];
