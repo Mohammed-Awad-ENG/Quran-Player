@@ -22,6 +22,9 @@ playSwitchBtn.parentElement.addEventListener("click", () => {
         }
     }
 });
+// toggle repeat
+let repeat = document.querySelector(".repeat");
+repeat.addEventListener("click", () => repeat.classList.toggle("active"));
 
 setInterval(() => {
     progress.value = audio.currentTime;
@@ -37,6 +40,13 @@ setInterval(() => {
             .padStart(2, "0")}:${Math.floor(timeRemaining % 60)
             .toString()
             .padStart(2, "0")}`;
+    }
+    if (
+        audio.currentTime == audio.duration &&
+        repeat.classList.contains("active")
+    ) {
+        audio.currentTime = 0;
+        audio.play();
     }
 }, 500);
 
@@ -56,6 +66,7 @@ document.querySelector(".menu").onclick = () => {
 document.querySelector(".fa-angle-up").onclick = () => {
     document.querySelector(".search-container").classList.toggle("hide");
 };
+
 // fetch api https://mp3quran.net/api/v3
 let apiUrl = "https://mp3quran.net/api/v3";
 let lang = document.querySelector("html").lang;
