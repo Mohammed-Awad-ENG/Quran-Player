@@ -254,7 +254,7 @@ body {
     * {
         -webkit-user-select: none;
         user-select: none;
-        cursor: none;
+        cursor: none !important;
     }
     .search-container {
         flex-direction: column;
@@ -303,3 +303,4 @@ body {
         width: 140px;
     }
 }
+
